@@ -1,0 +1,30 @@
+[2026-02-13T07:57:14.864Z] >>> VERIFICATION REQUEST RECEIVED <<<
+[2026-02-13T07:57:14.870Z] Verification Params: {
+  "razorpay_order_id": "order_SFYUkUfbXE0c95",
+  "razorpay_payment_id": "pay_SFYUz7rQUglNUH",
+  "razorpay_signature": "76715dfc5fe215f08de6acfeec31930d97bb627ac7b8273688d56b3d66b3bf99",
+  "planName": "Pro",
+  "amount": 799,
+  "currency": "INR"
+}
+[2026-02-13T07:57:14.981Z] Signature Check: {
+  "generated": "76715dfc5fe215f08de6acfeec31930d97bb627ac7b8273688d56b3d66b3bf99",
+  "received": "76715dfc5fe215f08de6acfeec31930d97bb627ac7b8273688d56b3d66b3bf99"
+}
+[2026-02-13T07:57:14.983Z] Connected to DB
+[2026-02-13T07:57:15.056Z] User updated: {
+  "id": "6984833c32495c8e95852605"
+}
+[2026-02-13T07:57:15.061Z] Creating transaction document: {
+  "userId": "6984833c32495c8e95852605",
+  "planName": "Pro",
+  "amount": 799,
+  "currency": "INR",
+  "razorpay_order_id": "order_SFYUkUfbXE0c95",
+  "razorpay_payment_id": "pay_SFYUz7rQUglNUH",
+  "razorpay_signature": "76715dfc5fe215f08de6acfeec31930d97bb627ac7b8273688d56b3d66b3bf99",
+  "status": "success"
+}
+[2026-02-13T07:57:15.151Z] Transaction saved: {
+  "id": "698ed95bd8213e654c7396b1"
+}

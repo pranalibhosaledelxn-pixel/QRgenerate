@@ -73,56 +73,63 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4 font-sans">
-            <div className="w-full max-w-sm rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/5 text-center">
-                <h1 className="mb-2 text-2xl font-bold text-gray-900">
+        <div className="flex min-h-screen items-center justify-center bg-slate-950 p-4 font-sans relative overflow-hidden">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 blur-[120px] rounded-full" />
+
+            <div className="w-full max-w-sm rounded-[2.5rem] bg-slate-900/40 p-8 border border-slate-800 backdrop-blur-2xl shadow-2xl transition-all relative z-10 text-center">
+                <h1 className="mb-2 text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                     {isLogin ? "Welcome Back" : "Create Account"}
                 </h1>
-                <p className="mb-8 text-sm text-gray-500">
+                <p className="mb-8 text-sm font-medium text-slate-400">
                     {isLogin
-                        ? "Sign in to access the QR Code Generator"
-                        : "Sign up to start generating QR codes"}
+                        ? "Sign in to access the QR Genius"
+                        : "Sign up to start generating premium QR codes"}
                 </p>
 
                 {error && (
-                    <div className="mb-4 p-3 text-sm text-red-500 bg-red-50 rounded-lg">
+                    <div className="mb-4 p-3 text-sm font-bold text-red-500 bg-red-500/10 border border-red-500/20 rounded-2xl animate-in fade-in slide-in-from-top-2">
                         {error}
                     </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="mb-6 space-y-4 text-left">
+                <form onSubmit={handleSubmit} className="mb-6 space-y-4 text-left" autoComplete="off">
                     {!isLogin && (
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <div className="space-y-1.5">
+                            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Name</label>
                             <input
                                 type="text"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required={!isLogin}
-                                className="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-black outline-none focus:border-black focus:ring-1 focus:ring-black"
+                                autoComplete="off"
+                                className="w-full rounded-2xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/10"
                                 placeholder="John Doe"
                             />
                         </div>
                     )}
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <div className="space-y-1.5">
+                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Email</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            className="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-black outline-none focus:border-black focus:ring-1 focus:ring-black"
+                            autoComplete="off"
+                            className="w-full rounded-2xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/10"
                             placeholder="user@example.com"
                         />
                     </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <div className="space-y-1.5">
+                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Password</label>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
-                            className="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-black outline-none focus:border-black focus:ring-1 focus:ring-black"
+                            autoComplete="new-password"
+                            className="w-full rounded-2xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/10"
                             placeholder="••••••••"
                         />
                     </div>
@@ -130,7 +137,7 @@ export default function LoginPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full rounded-xl bg-black px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 disabled:opacity-50 transition-all"
+                        className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-purple-900/20 transition-all hover:scale-[1.02] hover:shadow-purple-500/25 active:scale-[0.98] disabled:opacity-50 disabled:grayscale"
                     >
                         {loading
                             ? "Processing..."
@@ -141,16 +148,16 @@ export default function LoginPage() {
 
                 <div className="relative mb-6">
                     <div className="absolute inset-0 flex items-center">
-                        <div className="w-full border-t border-gray-200"></div>
+                        <div className="w-full border-t border-slate-800"></div>
                     </div>
-                    <div className="relative flex justify-center text-sm">
-                        <span className="bg-white px-2 text-gray-500">Or continue with</span>
+                    <div className="relative flex justify-center text-[10px] font-bold uppercase tracking-widest">
+                        <span className="bg-slate-900/40 px-2 text-slate-500">Or continue with</span>
                     </div>
                 </div>
 
                 <button
                     onClick={() => signIn("google", { callbackUrl: "/" })}
-                    className="flex w-full items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all"
+                    className="flex w-full items-center justify-center gap-3 rounded-2xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm font-bold text-slate-300 shadow-sm hover:bg-slate-800 hover:text-white transition-all active:scale-[0.98]"
                 >
                     <svg className="h-5 w-5" viewBox="0 0 24 24">
                         <path
@@ -173,14 +180,14 @@ export default function LoginPage() {
                     Google
                 </button>
 
-                <p className="mt-8 text-center text-sm text-gray-500">
+                <p className="mt-8 text-center text-sm text-slate-500">
                     {isLogin ? "Don't have an account? " : "Already have an account? "}
                     <button
                         onClick={() => {
                             setIsLogin(!isLogin);
                             setError("");
                         }}
-                        className="font-semibold text-black hover:underline"
+                        className="font-bold text-purple-400 hover:text-purple-300 transition-colors"
                     >
                         {isLogin ? "Sign up" : "Sign in"}
                     </button>

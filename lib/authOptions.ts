@@ -73,36 +73,54 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         async signIn({ user, account }) {
             if (account?.provider === "google") {
+                console.log("[DEBUG] Google Sign-In attempt for:", user.email);
                 try {
                     await connectDB();
                     const existingUser = await User.findOne({ email: user.email });
 
                     if (!existingUser) {
+                        console.log("[DEBUG] Creating new Google user");
                         await User.create({
                             name: user.name,
                             email: user.email,
                             image: user.image,
                             googleId: account.providerAccountId,
                         });
+                    } else {
+                        console.log("[DEBUG] Google user already exists");
                     }
                     return true;
                 } catch (error) {
-                    console.error("Error saving user to DB:", error);
+                    console.error("[DEBUG] Error saving Google user to DB:", error);
                     return false;
                 }
             }
             return true;
         },
         async session({ session, token }) {
+            console.log("[DEBUG] Session callback called. Token ID:", token?.id);
             if (token && session.user) {
-                // session.user.id = token.id as string; 
+                (session.user as any).id = token.id as string;
+                (session.user as any).isPremium = token.isPremium as boolean;
+                (session.user as any).plan = token.plan as string;
             }
             return session;
         },
-        async jwt({ token, user }) {
+        async jwt({ token, user, trigger, session }) {
             if (user) {
                 token.id = user.id;
             }
+
+            // Always fetch fresh user data to ensure premium status is current
+            if (token.email) {
+                await connectDB();
+                const dbUser = await User.findOne({ email: token.email });
+                if (dbUser) {
+                    token.isPremium = dbUser.isPremium;
+                    token.plan = dbUser.plan;
+                }
+            }
+
             return token;
         }
     },
