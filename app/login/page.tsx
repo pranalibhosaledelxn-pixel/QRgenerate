@@ -73,23 +73,27 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-slate-950 p-4 font-sans relative overflow-hidden">
-            {/* Ambient Background Glows */}
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 blur-[120px] rounded-full" />
+        <div className="flex min-h-screen items-center justify-center p-4 font-sans relative overflow-hidden"
+            style={{ background: "#09090b" }}
+        >
+            {/* Animated ambient glow */}
+            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full opacity-30 animate-blob pointer-events-none" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.4) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)" }} />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full opacity-30 animate-blob pointer-events-none" style={{ background: "radial-gradient(circle, rgba(6,182,212,0.4) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", animationDelay: "2s" }} />
 
-            <div className="w-full max-w-sm rounded-[2.5rem] bg-slate-900/40 p-8 border border-slate-800 backdrop-blur-2xl shadow-2xl transition-all relative z-10 text-center">
-                <h1 className="mb-2 text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <div className="w-full max-w-sm rounded-[2rem] p-8 relative z-10 text-center glass-panel transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(6,182,212,0.3)]">
+                <h1 className="mb-2 text-4xl font-extrabold tracking-tight text-gradient">
                     {isLogin ? "Welcome Back" : "Create Account"}
                 </h1>
-                <p className="mb-8 text-sm font-medium text-slate-400">
+                <h2 className="mt-6 text-2xl font-bold text-white tracking-tight">
                     {isLogin
-                        ? "Sign in to access the QR Genius"
-                        : "Sign up to start generating premium QR codes"}
-                </p>
+                        ? "Sign in to access QR MakeIt"
+                        : "Create your free account"}
+                </h2>
 
                 {error && (
-                    <div className="mb-4 p-3 text-sm font-bold text-red-500 bg-red-500/10 border border-red-500/20 rounded-2xl animate-in fade-in slide-in-from-top-2">
+                    <div className="mb-4 p-3 text-sm font-semibold text-red-400 rounded-xl"
+                        style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.12)" }}
+                    >
                         {error}
                     </div>
                 )}
@@ -104,7 +108,8 @@ export default function LoginPage() {
                                 onChange={(e) => setName(e.target.value)}
                                 required={!isLogin}
                                 autoComplete="off"
-                                className="w-full rounded-2xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/10"
+                                className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all focus:ring-2 focus:ring-blue-500/20"
+                                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
                                 placeholder="John Doe"
                             />
                         </div>
@@ -117,7 +122,7 @@ export default function LoginPage() {
                             onChange={(e) => setEmail(e.target.value)}
                             required
                             autoComplete="off"
-                            className="w-full rounded-2xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/10"
+                            className="w-full rounded-2xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all focus:border-cyan-500/50 focus:ring-4 focus:ring-cyan-500/10"
                             placeholder="user@example.com"
                         />
                     </div>
@@ -129,7 +134,7 @@ export default function LoginPage() {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                             autoComplete="new-password"
-                            className="w-full rounded-2xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/10"
+                            className="w-full rounded-2xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all focus:border-cyan-500/50 focus:ring-4 focus:ring-cyan-500/10"
                             placeholder="••••••••"
                         />
                     </div>
@@ -137,27 +142,32 @@ export default function LoginPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-purple-900/20 transition-all hover:scale-[1.02] hover:shadow-purple-500/25 active:scale-[0.98] disabled:opacity-50 disabled:grayscale"
+                        className="w-full rounded-xl px-4 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:grayscale relative overflow-hidden group"
+                        style={{ background: "linear-gradient(135deg, #2563EB, #06B6D4)" }}
                     >
-                        {loading
-                            ? "Processing..."
-                            : isLogin ? "Sign In" : "Sign Up"
-                        }
+                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                        <span className="relative z-10">
+                            {loading
+                                ? "Processing..."
+                                : isLogin ? "Sign In" : "Sign Up"
+                            }
+                        </span>
                     </button>
                 </form>
 
                 <div className="relative mb-6">
                     <div className="absolute inset-0 flex items-center">
-                        <div className="w-full border-t border-slate-800"></div>
+                        <div className="w-full" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}></div>
                     </div>
                     <div className="relative flex justify-center text-[10px] font-bold uppercase tracking-widest">
-                        <span className="bg-slate-900/40 px-2 text-slate-500">Or continue with</span>
+                        <span className="px-3 text-slate-500 bg-transparent relative z-10">Or continue with</span>
                     </div>
                 </div>
 
                 <button
                     onClick={() => signIn("google", { callbackUrl: "/" })}
-                    className="flex w-full items-center justify-center gap-3 rounded-2xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm font-bold text-slate-300 shadow-sm hover:bg-slate-800 hover:text-white transition-all active:scale-[0.98]"
+                    className="flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition-all hover:text-white active:scale-[0.99]"
+                    style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
                 >
                     <svg className="h-5 w-5" viewBox="0 0 24 24">
                         <path
@@ -180,14 +190,14 @@ export default function LoginPage() {
                     Google
                 </button>
 
-                <p className="mt-8 text-center text-sm text-slate-500">
+                <p className="mt-7 text-center text-sm text-slate-600">
                     {isLogin ? "Don't have an account? " : "Already have an account? "}
                     <button
                         onClick={() => {
                             setIsLogin(!isLogin);
                             setError("");
                         }}
-                        className="font-bold text-purple-400 hover:text-purple-300 transition-colors"
+                        className="font-bold text-blue-400 hover:text-blue-300 transition-colors"
                     >
                         {isLogin ? "Sign up" : "Sign in"}
                     </button>

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "QR Genius - Dashboard",
+  title: "QR MakeIt - Dashboard",
   description: "Manage your QR codes with ease.",
 };
 

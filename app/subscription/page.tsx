@@ -32,7 +32,7 @@ const plans = [
             "Ad-Free Experience",
             "QrEats Watermark",
         ],
-        icon: <Shield className="w-6 h-6 text-purple-400" />,
+        icon: <Shield className="w-6 h-6 text-cyan-400" />,
         buttonText: "Upgrade to Starter",
         popular: true,
         id: "starter",
@@ -104,9 +104,9 @@ export default function SubscriptionPage() {
             // 2. Open Razorpay Checkout
             const options = {
                 key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-                amount: order.amount,
-                currency: order.currency,
-                name: "QR Genius",
+                amount: Math.round(Number(plan.price) * 100 * 83), // Convert USD to INR precisely at 83 conversion
+                currency: "INR",
+                name: "QR MakeIt",
                 description: `Upgrade to ${plan.name} Plan`,
                 order_id: order.id,
                 handler: async function (response: any) {
@@ -167,83 +167,103 @@ export default function SubscriptionPage() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white p-8">
+        <div className="min-h-screen text-white p-8 relative overflow-hidden" style={{ background: "#09090b" }}>
+            {/* Animated ambient glow */}
+            <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full opacity-30 animate-blob pointer-events-none" style={{ background: "radial-gradient(circle, rgba(6,182,212,0.4) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)" }} />
+            <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full opacity-30 animate-blob pointer-events-none" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.4) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", animationDelay: "2s" }} />
+
             <Script
                 id="razorpay-checkout-js"
                 src="https://checkout.razorpay.com/v1/checkout.js"
                 crossOrigin="anonymous"
             />
-            <div className="max-w-7xl mx-auto space-y-12">
-                <div className="text-center space-y-4">
-                    <h1 className="text-5xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <div className="max-w-5xl mx-auto space-y-10 relative z-10">
+                <div className="text-center space-y-3">
+                    <h1 className="text-4xl font-extrabold tracking-tight text-gradient">
                         Choose Your Plan
                     </h1>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Unlock the full potential of high-quality QR generation with features
-                        tailored to your needs.
+                    <p className="text-slate-500 text-sm max-w-md mx-auto">
+                        Unlock the full potential of high-quality QR generation with features tailored to your needs.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     {plans
                         .map((plan) => {
                             const isCurrent = userPlan.toLowerCase() === plan.name.toLowerCase();
                             return (
                                 <div
                                     key={plan.name}
-                                    className={`relative flex flex-col p-6 rounded-3xl border transition-all duration-300 hover:scale-105 ${plan.popular
-                                        ? "bg-slate-900/50 border-purple-500/50 shadow-[0_0_50px_-12px_rgba(168,85,247,0.3)]"
-                                        : "bg-slate-900/30 border-slate-800 hover:border-slate-700"
-                                        } backdrop-blur-xl`}
+                                    className="relative flex flex-col rounded-3xl transition-all duration-300 glass-panel border border-slate-800/80 hover:-translate-y-1 hover:border-cyan-500/30 hover:z-10 hover:shadow-[0_10px_30px_-10px_rgba(6,182,212,0.15)]"
+                                    style={{
+                                        boxShadow: "0 8px 32px 0 rgba(0,0,0,0.3)",
+                                    }}
                                 >
                                     {plan.popular && (
-                                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-xs font-bold uppercase tracking-wider">
+                                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white whitespace-nowrap shadow-lg shadow-cyan-500/20"
+                                            style={{ background: "linear-gradient(135deg, #06B6D4, #3B82F6)" }}
+                                        >
                                             Most Popular
                                         </div>
                                     )}
 
-                                    <div className="mb-6 p-3 w-fit rounded-2xl bg-white/5 border border-white/10">
-                                        {plan.icon}
-                                    </div>
-
-                                    <div className="space-y-4 mb-6">
-                                        <h3 className="text-xl font-bold">{plan.name}</h3>
-                                        <div className="flex items-baseline gap-1">
-                                            <span className="text-3xl font-bold">₹{plan.price}</span>
-                                            <span className="text-slate-500 text-sm">/month</span>
+                                    <div className="p-6 flex-1 flex flex-col">
+                                        <div className="flex items-center gap-3 mb-5">
+                                            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.04)" }}>
+                                                {plan.icon}
+                                            </div>
+                                            <h3 className="text-lg font-bold text-white">{plan.name}</h3>
                                         </div>
-                                        <p className="text-slate-400 text-xs leading-relaxed">
-                                            {plan.description}
-                                        </p>
+
+                                        <div className="mb-4">
+                                            <div className="flex items-baseline gap-1">
+                                                <span className="text-3xl font-extrabold text-white">₹{plan.price}</span>
+                                                <span className="text-slate-600 text-sm">/month</span>
+                                            </div>
+                                            <p className="text-slate-500 text-xs mt-1.5">{plan.description}</p>
+                                        </div>
+
+                                        <div className="h-px my-2" style={{ background: "rgba(255,255,255,0.06)" }} />
+
+                                        <ul className="space-y-3 my-4 flex-grow">
+                                            {plan.features.map((feature) => (
+                                                <li key={feature} className="flex items-center gap-3 text-xs text-slate-400">
+                                                    <div className="w-5 h-5 rounded-md flex items-center justify-center shrink-0" style={{ background: "rgba(52,211,153,0.1)" }}>
+                                                        <Check className="w-3 h-3 text-emerald-400" />
+                                                    </div>
+                                                    {feature}
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        <button
+                                            onClick={() => handleUpgrade(plan)}
+                                            disabled={loading === plan.id || isCurrent}
+                                            className={`w-full py-3 rounded-xl text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden group ${isCurrent
+                                                ? "text-slate-500 cursor-default"
+                                                : "text-white hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+                                                } ${loading === plan.id ? "opacity-70 cursor-wait" : ""}`}
+                                            style={{
+                                                background: isCurrent
+                                                    ? "rgba(255,255,255,0.04)"
+                                                    : plan.popular ? "linear-gradient(135deg, #06B6D4, #3B82F6)" : "linear-gradient(135deg, #2563EB, #06B6D4)",
+                                                border: isCurrent
+                                                    ? "1px solid rgba(255,255,255,0.06)"
+                                                    : "none",
+                                            }}
+                                        >
+                                            {!isCurrent && <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />}
+                                            <span className="relative z-10 flex items-center gap-2">
+                                                {loading === plan.id ? (
+                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                ) : isCurrent ? (
+                                                    "Current Plan"
+                                                ) : (
+                                                    plan.buttonText
+                                                )}
+                                            </span>
+                                        </button>
                                     </div>
-
-                                    <ul className="space-y-3 mb-8 flex-grow">
-                                        {plan.features.map((feature) => (
-                                            <li key={feature} className="flex items-center gap-2 text-xs text-slate-300">
-                                                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                                                {feature}
-                                            </li>
-                                        ))}
-                                    </ul>
-
-                                    <button
-                                        onClick={() => handleUpgrade(plan)}
-                                        disabled={loading === plan.id || isCurrent}
-                                        className={`w-full py-3 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-2 ${isCurrent
-                                            ? "bg-slate-800 text-slate-400 cursor-default"
-                                            : plan.popular
-                                                ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.5)] active:scale-95"
-                                                : "bg-white text-slate-950 hover:bg-slate-200 active:scale-95"
-                                            } ${loading === plan.id ? "opacity-70 cursor-wait" : ""}`}
-                                    >
-                                        {loading === plan.id ? (
-                                            <Loader2 className="w-4 h-4 animate-spin" />
-                                        ) : isCurrent ? (
-                                            "Current Plan"
-                                        ) : (
-                                            plan.buttonText
-                                        )}
-                                    </button>
                                 </div>
                             );
                         })}

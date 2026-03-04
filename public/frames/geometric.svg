@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Outer border -->
+  <rect x="25" y="25" width="350" height="350" rx="6" stroke="#1E3A5F" stroke-width="3" fill="none"/>
+  <!-- Inner border -->
+  <rect x="35" y="35" width="330" height="330" rx="4" stroke="#1E3A5F" stroke-width="1.5" fill="none"/>
+  
+  <!-- White center for QR -->
+  <rect x="60" y="60" width="280" height="280" fill="white"/>
+
+  <!-- TOP-LEFT confetti cluster -->
+  <!-- Star -->
+  <polygon points="40,40 43,33 50,33 45,38 47,45 40,42 33,45 35,38 30,33 37,33" fill="#FF6B6B"/>
+  <!-- Triangle -->
+  <polygon points="55,28 60,38 50,38" fill="#4ECDC4"/>
+  <!-- Circle -->
+  <circle cx="30" cy="50" r="4" fill="#45B7D1"/>
+  <!-- Heart -->
+  <path d="M42,55 C42,50 48,48 48,53 C48,48 54,50 54,55 C54,60 48,64 48,64 C48,64 42,60 42,55Z" fill="#FF69B4"/>
+  <!-- Diamond -->
+  <polygon points="28,38 32,34 36,38 32,42" fill="#FFEAA7"/>
+
+  <!-- TOP-RIGHT confetti cluster -->
+  <polygon points="360,40 363,33 370,33 365,38 367,45 360,42 353,45 355,38 350,33 357,33" fill="#96CEB4"/>
+  <polygon points="345,28 350,38 340,38" fill="#DDA0DD"/>
+  <circle cx="370" cy="50" r="4" fill="#87CEEB"/>
+  <path d="M352,55 C352,50 358,48 358,53 C358,48 364,50 364,55 C364,60 358,64 358,64 C358,64 352,60 352,55Z" fill="#FF69B4"/>
+  <polygon points="372,38 376,34 380,38 376,42" fill="#FF6B6B"/>
+
+  <!-- BOTTOM-LEFT confetti cluster -->
+  <polygon points="40,360 43,353 50,353 45,358 47,365 40,362 33,365 35,358 30,353 37,353" fill="#FFEAA7"/>
+  <polygon points="55,372 60,362 50,362" fill="#4ECDC4"/>
+  <circle cx="30" cy="355" r="4" fill="#FF6B6B"/>
+  <path d="M42,345 C42,340 48,338 48,343 C48,338 54,340 54,345 C54,350 48,354 48,354 C48,354 42,350 42,345Z" fill="#DDA0DD"/>
+
+  <!-- BOTTOM-RIGHT confetti cluster -->
+  <polygon points="360,360 363,353 370,353 365,358 367,365 360,362 353,365 355,358 350,353 357,353" fill="#87CEEB"/>
+  <polygon points="345,372 350,362 340,362" fill="#FF6B6B"/>
+  <circle cx="370" cy="355" r="4" fill="#96CEB4"/>
+  <path d="M352,345 C352,340 358,338 358,343 C358,338 364,340 364,345 C364,350 358,354 358,354 C358,354 352,350 352,345Z" fill="#FF69B4"/>
+
+  <!-- Top edge triangles -->
+  <polygon points="100,27 105,35 95,35" fill="#4ECDC4"/>
+  <polygon points="150,27 155,35 145,35" fill="#FF6B6B"/>
+  <polygon points="200,27 205,35 195,35" fill="#FFEAA7"/>
+  <polygon points="250,27 255,35 245,35" fill="#45B7D1"/>
+  <polygon points="300,27 305,35 295,35" fill="#DDA0DD"/>
+
+  <!-- Bottom edge triangles -->
+  <polygon points="100,373 105,365 95,365" fill="#DDA0DD"/>
+  <polygon points="150,373 155,365 145,365" fill="#45B7D1"/>
+  <polygon points="200,373 205,365 195,365" fill="#FF6B6B"/>
+  <polygon points="250,373 255,365 245,365" fill="#4ECDC4"/>
+  <polygon points="300,373 305,365 295,365" fill="#FFEAA7"/>
+
+  <!-- Side dots -->
+  <circle cx="28" cy="100" r="3" fill="#FF6B6B"/>
+  <circle cx="28" cy="200" r="3" fill="#4ECDC4"/>
+  <circle cx="28" cy="300" r="3" fill="#FFEAA7"/>
+  <circle cx="372" cy="100" r="3" fill="#FFEAA7"/>
+  <circle cx="372" cy="200" r="3" fill="#FF6B6B"/>
+  <circle cx="372" cy="300" r="3" fill="#4ECDC4"/>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Card shadow -->
+  <rect x="22" y="22" width="360" height="360" rx="24" fill="#00000010"/>
+  <!-- Card body -->
+  <rect x="18" y="18" width="360" height="360" rx="24" fill="white" stroke="#E2E8F0" stroke-width="2.5"/>
+  
+  <!-- Top gradient accent bar -->
+  <defs>
+    <linearGradient id="topGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6366F1"/>
+      <stop offset="0.5" stop-color="#A855F7"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="18" width="360" height="8" rx="4" fill="url(#topGrad)"/>
+
+  <!-- Bottom accent dots -->
+  <circle cx="140" cy="370" r="4" fill="#6366F1"/>
+  <circle cx="170" cy="370" r="4" fill="#A855F7"/>
+  <circle cx="200" cy="370" r="4" fill="#EC4899"/>
+  <circle cx="230" cy="370" r="4" fill="#F59E0B"/>
+  <circle cx="260" cy="370" r="4" fill="#10B981"/>
+  
+  <!-- Corner butterfly / bird accent top-right -->
+  <ellipse cx="350" cy="45" rx="12" ry="5" fill="#A855F7" transform="rotate(-30 350 45)" opacity="0.6"/>
+  <ellipse cx="355" cy="50" rx="10" ry="4" fill="#EC4899" transform="rotate(20 355 50)" opacity="0.6"/>
+  
+  <!-- Corner accent bottom-right -->
+  <ellipse cx="350" cy="355" rx="14" ry="5" fill="#F59E0B" transform="rotate(-40 350 355)" opacity="0.5"/>
+  <ellipse cx="355" cy="350" rx="12" ry="4" fill="#FBBF24" transform="rotate(30 355 350)" opacity="0.5"/>
+  
+  <!-- Small bird/butterfly bottom-left -->
+  <ellipse cx="50" cy="355" rx="10" ry="4" fill="#10B981" transform="rotate(30 50 355)" opacity="0.5"/>
+  <ellipse cx="45" cy="350" rx="8" ry="3" fill="#6EE7B7" transform="rotate(-20 45 350)" opacity="0.5"/>
+  
+  <!-- Stars sparkle -->
+  <polygon points="48,42 50,36 52,42 58,44 52,46 50,52 48,46 42,44" fill="#FBBF24" opacity="0.4"/>
+  <polygon points="355,90 356,87 358,90 361,91 358,92 356,95 355,92 352,91" fill="#A855F7" opacity="0.3"/>
+  
+  <!-- Inner content area already white from card fill -->
+</svg>
