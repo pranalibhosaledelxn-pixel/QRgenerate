@@ -12,6 +12,10 @@
     "@google-cloud/storage": "^7.19.0",
     "@types/uuid": "^10.0.0",
     "bcryptjs": "^3.0.3",
+<<<<<<< HEAD
+=======
+    "canvas": "^3.2.1",
+>>>>>>> 93c556d6c13c2a80d55b288315725df1c7a18707
     "cloudinary": "^2.9.0",
     "lucide-react": "^0.563.0",
     "mongoose": "^9.1.6",
@@ -34,4 +38,8 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 93c556d6c13c2a80d55b288315725df1c7a18707
