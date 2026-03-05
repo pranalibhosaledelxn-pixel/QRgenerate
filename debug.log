@@ -1,0 +1,16 @@
+[2026-02-13T07:49:07.850Z] Verification Params: {
+  "razorpay_order_id": "order_SFYMDAWfpPBPtE",
+  "razorpay_payment_id": "pay_SFYMPpRHoiMTL5",
+  "razorpay_signature": "5fde2a24085cd1039bfebd261254ba086f4e062f64ac679523b1e774329f95ea",
+  "planName": "Pro",
+  "amount": 799,
+  "currency": "INR"
+}
+[2026-02-13T07:49:08.439Z] Signature Check: {
+  "generated": "5fde2a24085cd1039bfebd261254ba086f4e062f64ac679523b1e774329f95ea",
+  "received": "5fde2a24085cd1039bfebd261254ba086f4e062f64ac679523b1e774329f95ea"
+}
+[2026-02-13T07:49:08.445Z] DEBUG: Database operation failed during verification: {
+  "name": "CastError",
+  "message": "Cast to ObjectId failed for value \"102284394429404779947\" (type string) at path \"_id\" for model \"User\""
+}

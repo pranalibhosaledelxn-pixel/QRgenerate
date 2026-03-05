@@ -1,0 +1,87 @@
+|-- .env
+|-- .gitignore
+|-- app
+    |-- add-store
+        |-- page.tsx
+    |-- api
+        |-- auth
+            |-- register
+                |-- route.ts
+            |-- [...nextauth]
+                |-- route.ts
+        |-- delete-qr
+            |-- route.ts
+        |-- generate
+            |-- route.ts
+        |-- my-qrs
+            |-- route.ts
+        |-- razorpay
+            |-- order
+                |-- route.ts
+            |-- verify
+                |-- route.ts
+        |-- save-qr
+            |-- route.ts
+        |-- stores
+            |-- route.ts
+        |-- test-users
+            |-- route.ts
+        |-- upload
+            |-- route.ts
+    |-- favicon.ico
+    |-- globals.css
+    |-- layout.tsx
+    |-- login
+        |-- page.tsx
+    |-- my-qr
+        |-- page.tsx
+    |-- page.tsx
+    |-- subscription
+        |-- page.tsx
+|-- components
+    |-- LayoutShell.tsx
+    |-- Providers.tsx
+    |-- QrCodeGenerator.tsx
+    |-- Sidebar.tsx
+|-- debug.log
+|-- eslint.config.mjs
+|-- lib
+    |-- authOptions.ts
+    |-- db.ts
+    |-- planLimits.ts
+|-- models
+    |-- QrCode.ts
+    |-- Store.ts
+    |-- User.ts
+|-- next-env.d.ts
+|-- next.config.ts
+|-- package-lock.json
+|-- package.json
+|-- pages.txt
+|-- pages_list.txt
+|-- pages_utf8.txt
+|-- postcss.config.mjs
+|-- public
+    |-- file.svg
+    |-- frames
+        |-- easter-egg.svg
+        |-- envelope.svg
+        |-- floral-wreath.svg
+        |-- geometric.svg
+        |-- modern-card.svg
+    |-- globe.svg
+    |-- next.svg
+    |-- sitemap.xml
+    |-- vercel.svg
+    |-- window.svg
+|-- razorpay_debug.log
+|-- README.md
+|-- scripts
+    |-- clear-user-qrs.ts
+    |-- list-collections.ts
+    |-- verify-user-qr.ts
+|-- server
+    |-- package-lock.json
+|-- tsconfig.json
+|-- verification_output.txt
+|-- verify-payment-db.js

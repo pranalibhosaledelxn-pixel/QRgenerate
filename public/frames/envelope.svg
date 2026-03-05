@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Envelope body -->
+  <rect x="30" y="120" width="340" height="260" rx="12" fill="#FDEBD0" stroke="#E8C7A0" stroke-width="2"/>
+  <!-- Envelope flap -->
+  <path d="M30 120 L200 40 L370 120" fill="#F5D5B8" stroke="#E8C7A0" stroke-width="2"/>
+  <!-- Inner fold lines -->
+  <path d="M30 120 L200 260 L370 120" fill="none" stroke="#DEB887" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Flowers top-left -->
+  <circle cx="65" cy="85" r="8" fill="#93C5FD"/>
+  <circle cx="58" cy="78" r="6" fill="#93C5FD"/>
+  <circle cx="72" cy="78" r="6" fill="#93C5FD"/>
+  <circle cx="58" cy="92" r="6" fill="#93C5FD"/>
+  <circle cx="72" cy="92" r="6" fill="#93C5FD"/>
+  <circle cx="65" cy="85" r="4" fill="#FBBF24"/>
+  
+  <!-- Flowers top-right -->
+  <circle cx="335" cy="85" r="8" fill="#F9A8D4"/>
+  <circle cx="328" cy="78" r="6" fill="#F9A8D4"/>
+  <circle cx="342" cy="78" r="6" fill="#F9A8D4"/>
+  <circle cx="328" cy="92" r="6" fill="#F9A8D4"/>
+  <circle cx="342" cy="92" r="6" fill="#F9A8D4"/>
+  <circle cx="335" cy="85" r="4" fill="#FBBF24"/>
+
+  <!-- Leaves near flowers -->
+  <ellipse cx="45" cy="75" rx="12" ry="5" fill="#86EFAC" transform="rotate(-30 45 75)"/>
+  <ellipse cx="355" cy="75" rx="12" ry="5" fill="#86EFAC" transform="rotate(30 355 75)"/>
+  <ellipse cx="50" cy="100" rx="10" ry="4" fill="#6EE7B7" transform="rotate(20 50 100)"/>
+  <ellipse cx="350" cy="100" rx="10" ry="4" fill="#6EE7B7" transform="rotate(-20 350 100)"/>
+
+  <!-- Small tulips bottom -->
+  <line x1="80" y1="380" x2="80" y2="355" stroke="#86EFAC" stroke-width="2"/>
+  <ellipse cx="80" cy="350" rx="5" ry="8" fill="#FF69B4"/>
+  <line x1="120" y1="380" x2="120" y2="360" stroke="#86EFAC" stroke-width="2"/>
+  <ellipse cx="120" cy="355" rx="4" ry="7" fill="#DDA0DD"/>
+  <line x1="280" y1="380" x2="280" y2="360" stroke="#86EFAC" stroke-width="2"/>
+  <ellipse cx="280" cy="355" rx="4" ry="7" fill="#93C5FD"/>
+  <line x1="320" y1="380" x2="320" y2="355" stroke="#86EFAC" stroke-width="2"/>
+  <ellipse cx="320" cy="350" rx="5" ry="8" fill="#FCA5A5"/>
+  
+  <!-- Red wax seal -->
+  <circle cx="200" cy="365" r="16" fill="#EF4444"/>
+  <circle cx="200" cy="365" r="10" fill="#DC2626"/>
+  <circle cx="200" cy="365" r="5" fill="#EF4444"/>
+
+  <!-- "8" label -->
+  <text x="190" y="375" font-family="serif" font-size="18" font-weight="bold" fill="#FEE2E2">✉</text>
+  
+  <!-- Transparent center for QR -->
+  <rect x="85" y="145" width="230" height="195" rx="8" fill="white"/>
+</svg>
